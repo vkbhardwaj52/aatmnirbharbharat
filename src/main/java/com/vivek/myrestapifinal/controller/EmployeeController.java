@@ -40,6 +40,13 @@ public class EmployeeController {
 		return employeeDAO.findAll();
 	}
 	
+	//To get all employee
+	@GetMapping("/test")
+	public String getTestData()
+	{
+		return "Test Success";
+	}
+	
 	//To get employee by id
 	@GetMapping("/employees/{id}")
 	public ResponseEntity<Employee> getEmployeeById(@PathVariable(value="id") Long empid){
