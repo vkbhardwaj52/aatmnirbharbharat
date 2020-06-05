@@ -7,7 +7,7 @@ import org.springframework.stereotype.*;
 
 @Controller
 @SpringBootApplication
-public class DemoApplication {
+public class EmployeeController {
 
     @RequestMapping("/")
     @ResponseBody
