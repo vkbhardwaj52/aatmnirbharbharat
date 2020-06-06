@@ -25,22 +25,30 @@ public class CategoriesController {
 	CategoriesDAO categoriesDAO;
 	
 	
-	//To save an categories
-	@PostMapping("/saveCategories")
+	//To save an employee
+	@PostMapping("/categories")
 	public Categories createEmployee(@Valid @RequestBody Categories emp)
 	{
 		return categoriesDAO.save(emp);
 	}
 	
-	//To get all categories
-	@GetMapping("/getAllCategories")
+	//To get all employee
+	@GetMapping("/getAllcategories")
 	public List<Categories> getAllCategories()
 	{
 		return categoriesDAO.findAll();
-	}	
+	}
 	
-	//To get categories by id
-	@GetMapping("/getCategoriesById/id/{id}")
+	
+	//To get all employee
+	@GetMapping("/test")
+	public String getTestData()
+	{
+		return "Test Success";
+	}
+	
+	//To get employee by id
+	@GetMapping("/categories/{id}")
 	public ResponseEntity<Categories> getEmployeeById(@PathVariable(value="id") String id){
 		
 		Long categoriesId = Long.parseLong(id);
@@ -51,10 +59,11 @@ public class CategoriesController {
 		}
 		return ResponseEntity.ok().body(emp);
 		
-	}	
+	}
+	
 	
 	/*update an employee by empid*/
-	@PutMapping("/getCategoriesById/id/{id}")
+	@PutMapping("/categories/{id}")
 	public ResponseEntity<Categories> updateEmployee(@PathVariable(value="id") Long empid,@Valid @RequestBody Categories empDetails){
 		
 		Categories emp=categoriesDAO.findOne(empid);
@@ -69,7 +78,7 @@ public class CategoriesController {
 	}
 	
 	/*Delete an employee*/
-	@PutMapping("/getCategoriesById/id/{id}")
+	@DeleteMapping("/categories/{id}")
 	public ResponseEntity<Categories> deleteEmployee(@PathVariable(value="id") Long empid){
 		
 		Categories emp=categoriesDAO.findOne(empid);
@@ -81,12 +90,6 @@ public class CategoriesController {
 		return ResponseEntity.ok().build();
 		
 		
-	}
-	//To get all employee
-	@GetMapping("/test")
-	public String getTestData()
-	{
-		return "Test Success";
 	}
 
 }
