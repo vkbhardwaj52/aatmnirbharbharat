@@ -33,7 +33,7 @@ public class CategoriesController {
 	}
 	
 	//To get all employee
-	@GetMapping("/getAllcategories")
+	@GetMapping("/getAllCategories")
 	public List<Categories> getAllCategories()
 	{
 		return categoriesDAO.findAll();
@@ -48,7 +48,7 @@ public class CategoriesController {
 	}
 	
 	//To get employee by id
-	@GetMapping("/categories/{id}")
+	@GetMapping("/getCategoriesById/id/{id}")
 	public ResponseEntity<Categories> getEmployeeById(@PathVariable(value="id") String id){
 		
 		Long categoriesId = Long.parseLong(id);
