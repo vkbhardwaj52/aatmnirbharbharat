@@ -19,7 +19,7 @@ import com.vivek.myrestapifinal.dao.EmployeeDAO;
 import com.vivek.myrestapifinal.model.Employee;
 
 @RestController
-@RequestMapping("/company")
+//@RequestMapping("/company")
 public class EmployeeController {
 	
 	@Autowired
