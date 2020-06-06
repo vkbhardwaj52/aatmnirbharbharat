@@ -28,21 +28,21 @@ public class CategoriesController {
 	
 	//To save an employee
 	@PostMapping("/categories")
-	public Employee createEmployee(@Valid @RequestBody Categories emp)
+	public Employee createEmployee1(@Valid @RequestBody Categories emp)
 	{
 		return employeeDAO.save(emp);
 	}
 	
 	//To get all employee
 	@GetMapping("/categories")
-	public List<Categories> getAllEmployees()
+	public List<Categories> getAllEmployees1()
 	{
 		return employeeDAO.findAll();
 	}
 	
 	//To get employee by id
 	@GetMapping("/categories/{id}")
-	public ResponseEntity<Categories> getEmployeeById(@PathVariable(value="id") Long empid){
+	public ResponseEntity<Categories> getEmployeeById1(@PathVariable(value="id") Long empid){
 		
 		Categories emp=employeeDAO.findOne(empid);
 		
