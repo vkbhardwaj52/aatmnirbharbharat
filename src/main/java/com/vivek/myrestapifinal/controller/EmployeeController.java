@@ -41,6 +41,13 @@ public class EmployeeController {
 	}
 	
 	//To get all employee
+	@GetMapping("/categories")
+	public List<Employee> getAllEmployees()
+	{
+		return employeeDAO.findAll();
+	}
+	
+	//To get all employee
 	@GetMapping("/test")
 	public String getTestData()
 	{
