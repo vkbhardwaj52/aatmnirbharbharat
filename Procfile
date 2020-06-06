@@ -1,1 +1,1 @@
-web: java -cp target/classes/com/vivek/myrestapifinal target.classes.com.vivek.myrestapifinal.EmployeeApplication.class
+web: java $JAVA_OPTS -cp target/classes/:target/MyRestApiFinal/WEB-INF/lib/* com.vivek.myrestapifinal.EmployeeApplication
