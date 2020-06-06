@@ -33,8 +33,8 @@ public class CategoriesController {
 	}
 	
 	//To get all employee
-	@GetMapping("/categories")
-	public List<Categories> getAllEmployees()
+	@GetMapping("/getAllcategories")
+	public List<Categories> getAllCategories()
 	{
 		return categoriesDAO.findAll();
 	}
@@ -49,9 +49,10 @@ public class CategoriesController {
 	
 	//To get employee by id
 	@GetMapping("/categories/{id}")
-	public ResponseEntity<Categories> getEmployeeById(@PathVariable(value="id") Long empid){
+	public ResponseEntity<Categories> getEmployeeById(@PathVariable(value="id") String id){
 		
-		Categories emp=categoriesDAO.findOne(empid);
+		Long categoriesId = Long.parseLong(id);
+		Categories emp=categoriesDAO.findOne(categoriesId);
 		
 		if(emp==null) {
 			return ResponseEntity.notFound().build();
