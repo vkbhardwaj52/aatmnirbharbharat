@@ -23,74 +23,60 @@ import com.vivek.myrestapifinal.model.Categories;
 public class CategoriesController {
 	
 	@Autowired
-	CategoriesDAO categoriesDAO;
+	CategoriesDAO categoriesDAO;	
 	
-	
-	//To save an employee
-	@PostMapping("/categories")
-	public Categories createEmployee(@Valid @RequestBody Categories emp)
-	{
-		return categoriesDAO.save(emp);
-	}
-	
-	//To get all employee
+	//To get all categories
 	@GetMapping("/getAllCategories")
 	public List<Categories> getAllCategories()
 	{
 		return categoriesDAO.findAll();
-	}
+	}	
 	
-	
-	//To get all employee
-	@GetMapping("/test")
-	public String getTestData()
-	{
-		return "Test Success";
-	}
-	
-	//To get employee by id
+	//Get categories by id
 	@GetMapping("/getCategoriesById/id/{id}")
 	public ResponseEntity<Categories> getEmployeeById(@PathVariable(value="id") String id){
 		
 		Long categoriesId = Long.parseLong(id);
-		Categories emp=categoriesDAO.findOne(categoriesId);
+		Categories cat=categoriesDAO.findOne(categoriesId);
 		
-		if(emp==null) {
+		if(cat==null) {
 			return ResponseEntity.notFound().build();
 		}
-		return ResponseEntity.ok().body(emp);
-		
+		return ResponseEntity.ok().body(cat);		
 	}
 	
+	//Save an categories
+	@PostMapping("/saveCategories")
+	public Categories createEmployee(@Valid @RequestBody Categories emp)
+	{
+		return categoriesDAO.save(emp);
+	}	
 	
-	/*update an employee by empid*/
-	@PutMapping("/categories/{id}")
-	public ResponseEntity<Categories> updateEmployee(@PathVariable(value="id") Long empid,@Valid @RequestBody Categories empDetails){
+	/*Update an categories by id*/
+	@PutMapping("/updateCategoriesById/id/{id}")
+	public ResponseEntity<Categories> updateEmployee(@PathVariable(value="id") String id,@Valid @RequestBody Categories categories){
 		
-		Categories emp=categoriesDAO.findOne(empid);
-		if(emp==null) {
+		Long categoriesId = Long.parseLong(id);
+		Categories cat=categoriesDAO.findOne(categoriesId);
+		if(cat==null) {
 			return ResponseEntity.notFound().build();
-		}
-		
-		emp.setCategoriesDesc(empDetails.getCategoriesDesc());		
-		Categories updateEmployee=categoriesDAO.save(emp);
+		}		
+		cat.setCategoriesDesc(categories.getCategoriesDesc());		
+		Categories updateEmployee=categoriesDAO.save(cat);
 		return ResponseEntity.ok().body(updateEmployee);		
-		
 	}
 	
-	/*Delete an employee*/
-	@DeleteMapping("/categories/{id}")
-	public ResponseEntity<Categories> deleteEmployee(@PathVariable(value="id") Long empid){
+	/*Delete an categories by id*/
+	@DeleteMapping("/deleteCategoriesById/id/{id}")
+	public ResponseEntity<Categories> deleteEmployee(@PathVariable(value="id") String id){
 		
-		Categories emp=categoriesDAO.findOne(empid);
-		if(emp==null) {
+		Long categoriesId = Long.parseLong(id);
+		Categories cat=categoriesDAO.findOne(categoriesId);
+		if(cat==null) {
 			return ResponseEntity.notFound().build();
 		}
-		categoriesDAO.delete(emp);
-		
-		return ResponseEntity.ok().build();
-		
-		
+		categoriesDAO.delete(cat);		
+		return ResponseEntity.ok().build();		
 	}
 
 }
