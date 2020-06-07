@@ -31,7 +31,6 @@ public class ItemProfile {
 	@NotBlank
 	private String itemLongDesc;
 	
-	@NotBlank
 	private int itemPrice;
 	
 	@NotBlank
