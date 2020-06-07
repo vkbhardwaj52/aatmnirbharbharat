@@ -45,6 +45,14 @@ public class ItemProfileController {
 		return ResponseEntity.ok().body(item);		
 	}
 	
+	//Get item by id
+	@GetMapping("/getItemBySubCategoriesId/subCategoriesId/{id}")
+	public List<ItemProfile> getItemBySubCategoriesId(@PathVariable(value="id") String id){
+		
+		
+		return itemProfileDAO.findAllWithConditions(id);
+	}
+	
 	//Save an item
 	@PostMapping("/saveItem")
 	public ItemProfile createEmployee(@Valid @RequestBody ItemProfile emp)
