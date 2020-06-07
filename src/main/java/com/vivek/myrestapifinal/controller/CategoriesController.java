@@ -18,7 +18,7 @@ import com.vivek.myrestapifinal.dao.CategoriesDAO;
 import com.vivek.myrestapifinal.model.Categories;
 
 @RestController
-//@RequestMapping("/categories1")
+@RequestMapping("/categories")
 public class CategoriesController {
 	
 	@Autowired
