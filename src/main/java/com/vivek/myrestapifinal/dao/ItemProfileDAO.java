@@ -36,6 +36,7 @@ public class ItemProfileDAO {
 		return itemProfileRepository.findAll();
 	}
 	
+	/*
 	//Search all item
 	public List<ItemProfile> findAllWithConditions(String subCategoriesId)
 	{
@@ -46,6 +47,7 @@ public class ItemProfileDAO {
 	      em.close();
 	      return resultList;
 	}
+	*/
 	
 	//Get an item
 	public ItemProfile findOne(Long itemId)
