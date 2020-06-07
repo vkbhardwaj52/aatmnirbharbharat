@@ -26,7 +26,10 @@ public class Categories {
 	private long categoriesId;
 	
 	@NotBlank
-	private String categoriesDesc;	
+	private String categoriesDesc;
+	
+	@NotBlank
+	private String categoriesImage;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@LastModifiedDate
@@ -46,6 +49,14 @@ public class Categories {
 
 	public void setCategoriesDesc(String categoriesDesc) {
 		this.categoriesDesc = categoriesDesc;
+	}	
+
+	public String getCategoriesImage() {
+		return categoriesImage;
+	}
+
+	public void setCategoriesImage(String categoriesImage) {
+		this.categoriesImage = categoriesImage;
 	}
 
 	public Date getCreatedTstamp() {
