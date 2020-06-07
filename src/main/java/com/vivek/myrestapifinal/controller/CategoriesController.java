@@ -26,13 +26,6 @@ public class CategoriesController {
 	CategoriesDAO categoriesDAO;	
 	
 	//To get all categories
-	@GetMapping("/test")
-	public String test()
-	{
-		return "Test Success";
-	}	
-	
-	//To get all categories
 	@GetMapping("/getAllCategories")
 	public List<Categories> getAllCategories()
 	{
