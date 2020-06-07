@@ -40,7 +40,7 @@ public class ItemProfile {
 	@NotBlank
 	private String itemImage;
 	
-	@NotBlank
+	
 	private long subCategoriesId;
 	
 	@Temporal(TemporalType.TIMESTAMP)
