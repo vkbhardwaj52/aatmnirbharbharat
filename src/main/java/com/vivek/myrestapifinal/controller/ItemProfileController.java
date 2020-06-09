@@ -32,6 +32,27 @@ public class ItemProfileController {
 		return itemProfileDAO.findAll();
 	}	
 	
+	//Get item by sub categoies id
+	@GetMapping("/getItemBySubCategoriesId/id/{id}")
+	public List<ItemProfile> getItemBySubCategoriesId(@PathVariable(value="id") String id){
+		
+	Long subCategoriesId = Long.parseLong(id);		
+
+	List<ItemProfile> retItemProfile = new ArrayList<ItemProfile>();
+
+	List<ItemProfile> itemProfile = itemProfileDAO.findAll();
+
+	for(int i=0;i<itemProfile.size();i++)
+	{
+		ItemProfile it = itemProfile.get(i);
+		if(it.getSubCategoriesId() == subCategoriesId)
+		{
+			retItemProfile.add(it);
+		}
+	}
+	return retItemProfile;
+	}
+	
 	//Get item by id
 	@GetMapping("/getItemById/id/{id}")
 	public ResponseEntity<ItemProfile> getEmployeeById(@PathVariable(value="id") String id){
