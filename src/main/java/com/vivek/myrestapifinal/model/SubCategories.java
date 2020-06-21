@@ -31,6 +31,7 @@ public class SubCategories {
 	@NotBlank
 	private String subCategoriesImage;
 	
+	@NotBlank
 	private Long categoriesId;
 	
 	@Temporal(TemporalType.TIMESTAMP)
