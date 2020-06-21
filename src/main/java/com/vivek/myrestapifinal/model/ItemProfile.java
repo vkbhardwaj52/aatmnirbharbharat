@@ -31,6 +31,7 @@ public class ItemProfile {
 	@NotBlank
 	private String itemLongDesc;
 	
+
 	private int itemPrice;
 	
 	@NotBlank
@@ -39,8 +40,9 @@ public class ItemProfile {
 	@NotBlank
 	private String itemImage;
 	
-	
 	private long subCategoriesId;
+	
+	private String link;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@LastModifiedDate
@@ -110,6 +112,12 @@ public class ItemProfile {
 		this.createdTstamp = createdTstamp;
 	}
 
-	
+	public String getLink() {
+		return link;
+	}
+
+	public void setLink(String link) {
+		this.link = link;
+	}	
 	
 }
