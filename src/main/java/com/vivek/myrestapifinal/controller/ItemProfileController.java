@@ -135,7 +135,9 @@ public class ItemProfileController {
 		for(int i=0;i<itemProfile.size();i++)
 		{
 			ItemProfile it = itemProfile.get(i);
-			if(it.getItemShortDesc().contains(id) || it.getItemLongDesc().contains(id) || it.getItemPrice() == Integer.parseInt(id))
+			String strPrice = it.getItemPrice()+"";
+			if(it.getItemShortDesc().toLowerCase().contains(id.toLowerCase()) || it.getItemLongDesc().toLowerCase().contains(id.toLowerCase())
+					|| strPrice.equals(id))
 			{
 				retItemProfile.add(it);
 			}
