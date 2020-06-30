@@ -123,6 +123,25 @@ public class ItemProfileController {
 		
 		
 	}
+	
+	//Get item by sub item desc
+	@GetMapping("/getItemByItemDesc/desc/{id}")
+	public List<ItemProfile> getItemByItemDesc(@PathVariable(value="id") String id){
+		
+		List<ItemProfile> retItemProfile = new ArrayList<ItemProfile>();
+		
+		List<ItemProfile> itemProfile = itemProfileDAO.findAll();
+		
+		for(int i=0;i<itemProfile.size();i++)
+		{
+			ItemProfile it = itemProfile.get(i);
+			if(it.getItemShortDesc().contains(id) || it.getItemLongDesc().contains(id) || it.getItemPrice() == Integer.parseInt(id))
+			{
+				retItemProfile.add(it);
+			}
+		}	
+		return retItemProfile;
+	}
 		
 	
 	//Save an item
